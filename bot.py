@@ -1,21 +1,18 @@
-import json
+from dotenv import load_dotenv
+import os
 from datetime import datetime, timezone, timedelta
+
 
 import telebot
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-from crawler import Crawler
+from crawlers.ntnucsie import Crawler
 
 # Bot setting
-TOKEN = ''
-CHAT_ID = []
+load_dotenv()
 
-with open('config.json') as f:
-    j = json.load(f)
-    TOKEN = j['token']
-    CHAT_ID = j['chatId']
 
-tb = telebot.TeleBot(TOKEN)
+tb = telebot.TeleBot(os.getenv('TOKEN'))
 
 
 def send_news():
@@ -27,9 +24,9 @@ def send_news():
         news_lists.append(f'{new["title"]}\n\n{new["link"]}\n')
     text = '\n\n\n'.join(news_lists)
 
-    for id in CHAT_ID:
+    for chat_id in os.getenv('CHAT_ID'):
         if text:
-            tb.send_message(id, text)
+            tb.send_message(chat_id, text)
 
 
 if __name__ == '__main__':
