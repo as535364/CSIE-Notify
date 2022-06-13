@@ -24,7 +24,7 @@ def send_news():
         news_lists.append(f'{new["title"]}\n\n{new["link"]}\n')
     text = '\n\n\n'.join(news_lists)
 
-    for chat_id in os.getenv('CHAT_ID'):
+    for chat_id in os.getenv('CHAT_ID').split(','):
         if text:
             tb.send_message(chat_id, text)
 

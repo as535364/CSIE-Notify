@@ -13,8 +13,12 @@
 ```bash
 git clone https://github.com/as535364/NTNU-CSIE-Notify.git
 ```
-2. Modify config.json.
-**telegram chat id must be an integer**
+2. Modify `.env`.
+
+  **Telegram chat id must be an integer.**
+
+  If there are multiple ids, use commas to separate them.
+
 3. 
 ```bash
 docker build -t notify .
