@@ -1,15 +1,12 @@
 # secret
-.env
+src/.env
+src/news.txt
 
 # VSCode
 .vscode/
 
 # JetBrains
 .idea/
-
-# config file
-config.json
-news.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
