@@ -1,6 +1,9 @@
 # VSCode
 .vscode/
 
+# JetBrains
+.idea/
+
 # config file
 config.json
 news.txt
